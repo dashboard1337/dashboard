@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
+
 from flask import Flask, render_template
-import app.auth as auth
 
 app = Flask(__name__)
 
@@ -11,17 +12,17 @@ def index():
 
 @app.route('/login')
 def login():
-    return render_template('auth/login.html')
+    return render_template('login.html')
 
 
 @app.route('/register')
 def register():
-    return render_template('auth/signup.html')
+    return render_template('signup.html')
 
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('/dashboard/dashboard.html')
+    return render_template('dashboard.html')
 
 
 if __name__ == "__main__":
