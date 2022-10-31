@@ -15,8 +15,8 @@ def login():
     return render_template('login.html')
 
 
-@app.route('/register')
-def register():
+@app.route('/signup')
+def signup():
     return render_template('signup.html')
 
 
@@ -26,5 +26,4 @@ def dashboard():
 
 
 if __name__ == "__main__":
-    # flask --app app/main.py --debug run
     app.run(debug=True)
