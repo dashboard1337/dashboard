@@ -5,6 +5,8 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
+#  @todo Create homepage
+#  @body Make info, buttons etc.
 @app.route('/')
 def index():
     return render_template('index.html')
