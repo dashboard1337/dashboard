@@ -32,7 +32,7 @@
 	}
 
 	.logo img {
-		width: 180px;
+		width: 50px;
 		border-radius: 50px;
 	}
 
@@ -63,13 +63,23 @@
 	}
 
 	.firstsection {
-		background-color: green;
-		height: 400px;
+		background-color: #181818;
+		height: 250px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-width: 100%;
+		margin: auto;
 	}
 
 	.secondsection {
-		background-color: blue;
-		height: 400px;
+		background-color: #181818;
+		height: 250px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-width: 100%;
+		margin: auto;
 	}
 
 	.box-main {
@@ -105,10 +115,22 @@
 		font-family: 'Piazzolla', serif;
 		font-weight: bold;
 		font-size: 35px;
+		color: white;
+	}
+
+	.website-slogan {
+	    font-family: 'Piazzolla', serif;
+		font-weight: bold;
+	    font-size: 20px;
+	    color: white;
+	    text-align: center;
 	}
 
 	.text-small {
-		font-size: 18px;
+	    font-family: 'Piazzolla', serif;
+		font-size: 20px;
+		color: white;
+		white-space: inherit;
 	}
 
 	.btn {
@@ -127,13 +149,15 @@
 	}
 
 	.section {
-		height: 400px;
+	    background-color: #181818;
+		height: 200px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		max-width: 90%;
+		max-width: 100%;
 		margin: auto;
 	}
+
 
 	.section-Left {
 		flex-direction: row-reverse;
