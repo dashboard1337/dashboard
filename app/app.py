@@ -35,5 +35,10 @@ def source():
     return redirect('https://github.com/AltDaze/dashboard')
 
 
+@app.route('/support')
+def support():
+    return redirect('https://github.com/AltDaze/dashboard/issues')
+
+
 if __name__ == "__main__":
     app.run(debug=True)
