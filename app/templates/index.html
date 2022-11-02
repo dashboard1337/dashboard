@@ -21,10 +21,11 @@
         <h1 class="website-slogan" id="slogan">
             Save whatever you need
         </h1>
-        <li><a href="dashboard">Dashboard</a></li>
-        <li><a href="about">About</a></li>
-        <li><a href="source">Source</a></li>
-        <li><a href="support">Support</a></li>
+            {% for m in menu -%}
+            <li>
+                <a href="{{m.url}}"> {{m.name}} </a>
+            </li>
+            {% endfor -%}
     </ul>
 
     <div class="rightNav">
