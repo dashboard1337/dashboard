@@ -5,20 +5,14 @@ from flask import Flask, render_template, redirect, flash, request, escape, url_
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'fKdwKEDPe'
 
-menu = [
-    {'name': 'Dashboard', 'url': 'dashboard'},
-    {'name': 'About', 'url': 'about'},
-    {'name': 'Support', 'url': 'support'},
-    {'name': 'Feedback', 'url': 'feedback'},
-]
-
 
 @app.route('/')
 def index():
-    return render_template('index.html', menu=menu)
+    username = request.cookies.get('username')
+    return render_template('index.html')
 
 
-@app.route('/<username>')
+@app.route('/dashboard/<username>')
 def dashboard(username):
     # return f'{username} profile'
     return render_template('dashboard.html', username=username)
@@ -48,11 +42,15 @@ def signup():
     return render_template('signup.html')
 
 
-@app.route('/feedback', methods=["POST", "GET"])
-def feedback():
-    if request.method == 'POST':
-        #  todo: add checker + else 'error sent'
-        flash("message's sent")
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('page_not_found.html'), 404
+
+# @app.route('/feedback', methods=["POST", "GET"])
+# def feedback():
+#     if request.method == 'POST':
+#         #  todo: add checker + else 'error sent'
+#         flash("message's sent")
 
 
 if __name__ == "__main__":
