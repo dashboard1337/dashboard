@@ -8,23 +8,29 @@ app.config['SECRET_KEY'] = 'fKdwKEDPe'
 
 @app.route('/')
 def index():
-    username = request.cookies.get('username')
     return render_template('index.html')
 
 
-@app.route('/dashboard/<username>')
-def dashboard(username):
+@app.route('/dashboard/')
+@app.route('/dashboard/<string:username>', methods=['GET'])
+def dashboard(username=None):
     # return f'{username} profile'
-    return render_template('dashboard.html', username=username)
+    # username = email without @mail.com
+    if username:
+        return render_template('dashboard.html', username=username)
+    else:
+        return redirect(url_for('login'))
 
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     error = None
     if request.method == 'POST':
-        pass  # return do_the_login()
-    else:
-        return render_template('login.html', error=error)
+        username = request.form.get('username')
+        password = request.form.get('password')
+        # login and password verification if true else abort(401)
+        return redirect(url_for(f'dashboard/{username}'))
+    return render_template('login.html', error=error)
 
     # Authorization code example
     # error = None
