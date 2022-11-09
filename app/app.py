@@ -8,7 +8,7 @@ app.config['SECRET_KEY'] = 'fKdwKEDPe'
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('dashboard/index.html')
 
 
 @app.route('/dashboard/')
@@ -17,7 +17,7 @@ def dashboard(username=None):
     # return f'{username} profile'
     # username = email without @mail.com
     if username:
-        return render_template('dashboard.html', username=username)
+        return render_template('dashboard/dashboard.html', username=username)
     else:
         return redirect(url_for('login'))
 
@@ -30,7 +30,7 @@ def login():
         password = request.form.get('password')
         # login and password verification if true else abort(401)
         return redirect(url_for(f'dashboard/{username}'))
-    return render_template('login.html', error=error)
+    return render_template('auth/login.html', error=error)
 
     # Authorization code example
     # error = None
@@ -45,12 +45,12 @@ def login():
 
 @app.route('/signup')
 def signup():
-    return render_template('signup.html')
+    return render_template('auth/signup.html')
 
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template('page_not_found.html'), 404
+    return render_template('errors/404.html'), 404
 
 # @app.route('/feedback', methods=["POST", "GET"])
 # def feedback():
