@@ -22,41 +22,9 @@ def dashboard(username=None):
         return redirect(url_for('login'))
 
 
-# @app.route('/auth')
-# def auth():
-#     return redirect(url_for('login'))
-#
-#
-# @app.route('/auth/login', methods=['POST', 'GET'])
-# def login():
-#     error = None
-#     if request.method == 'POST':
-#         username = request.form.get('username')
-#         password = request.form.get('password')
-#         # login and password verification if true else abort(401)
-#         return redirect(url_for(f'dashboard/{username}'))
-#     return render_template('auth/login.html', error=error)
-
-    # Authorization code example
-    # error = None
-    # if request.method == 'POST':
-    #     if valid_login(request.form['username'],
-    #                    request.form['password']):
-    #         return log_the_user_in(request.form['username'])
-    #     else:
-    #         error = 'Invalid username/password'
-    # return render_template('login.html', error=error)
-
-
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('errors/404.html'), 404
-
-# @app.route('/feedback', methods=["POST", "GET"])
-# def feedback():
-#     if request.method == 'POST':
-#         #  todo: add checker + else 'error sent'
-#         flash("message's sent")
 
 
 if __name__ == "__main__":
